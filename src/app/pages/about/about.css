@@ -1,0 +1,68 @@
+/* Estilo para el título */
+.titulo-nosotros {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.titulo-nosotros::after {
+  content: '';
+  position: absolute;
+  width: 70%;
+  height: 4px;
+  background: linear-gradient(90deg, #3498db, #9b59b6);
+  bottom: -10px;
+  left: 15%;
+  border-radius: 2px;
+}
+
+/* Contenedor para efectos avanzados */
+.contenedor-imagen-nosotros {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  perspective: 1000px; /* Para efecto 3D */
+}
+
+/* Estilo mejorado para la imagen */
+.imagen-nosotros {
+  width: clamp(300px, 40vw, 600px); /* Responsivo entre 300px y 600px */
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  object-fit: cover;
+  aspect-ratio: 16/9; /* Proporción widescreen */
+  filter: brightness(0.95) contrast(1.05);
+  border: 5px solid white;
+}
+
+/* Efectos hover mamalones */
+.imagen-nosotros:hover {
+  transform: scale(1.03) rotateY(5deg) rotateX(5deg);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  filter: brightness(1) contrast(1.1) saturate(1.1);
+  cursor: pointer;
+}
+
+/* Efecto al hacer clic */
+.imagen-nosotros:active {
+  transform: scale(0.98);
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .imagen-nosotros {
+    width: 90%;
+    border-radius: 10px;
+  }
+  
+  .titulo-nosotros {
+    font-size: 2rem;
+  }
+}

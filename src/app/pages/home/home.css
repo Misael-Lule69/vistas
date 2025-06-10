@@ -1,0 +1,93 @@
+/* Estilo para el título de productos */
+.titulo-productos {
+  text-align: center;
+  font-size: 2.8rem;
+  margin: 2rem 0;
+  color: #111;
+  font-weight: 700;
+  letter-spacing: -1px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.titulo-productos::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #0071e3, #00a8ff);
+  bottom: -15px;
+  left: calc(50% - 50px);
+  border-radius: 4px;
+}
+
+/* Contenedor premium para productos */
+.contenedor-producto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+  border-radius: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.05),
+    inset 0 0 0 1px rgba(255,255,255,0.8);
+}
+
+/* Estilo ultra-realista para dispositivo */
+.imagen-producto {
+  width: clamp(250px, 30vw, 400px);
+  height: auto;
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 20px 30px rgba(0, 115, 227, 0.3));
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+/* Efecto hover para producto tecnológico */
+.imagen-producto:hover {
+  transform: 
+    scale(1.05)
+    rotateY(10deg)
+    rotateX(5deg);
+  filter: 
+    drop-shadow(0 25px 35px rgba(0, 115, 227, 0.4))
+    brightness(1.02);
+}
+
+/* Efecto de selección */
+.imagen-producto:active {
+  transform: scale(0.98);
+  transition: transform 0.1s;
+}
+
+/* Rotación automática (opcional) */
+@keyframes float-product {
+  0%, 100% { transform: translateY(0) rotateY(0); }
+  50% { transform: translateY(-20px) rotateY(10deg); }
+}
+
+.contenedor-producto:hover .imagen-producto {
+  animation: float-product 4s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .titulo-productos {
+    font-size: 2.2rem;
+  }
+  
+  .contenedor-producto {
+    padding: 20px 10px;
+    border-radius: 15px;
+  }
+  
+  .imagen-producto {
+    width: 70%;
+  }
+}
